@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'themekraft/tk-google-fonts',
-        'pretty_version' => '2.3.0',
-        'version' => '2.3.0.0',
-        'reference' => '29656d941e0f49c0a5752a07f8ab432abd697680',
+        'pretty_version' => '2.3.1',
+        'version' => '2.3.1.0',
+        'reference' => 'f4d01e5557446c09db868446727a76ef0f868a5c',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'themekraft/tk-google-fonts' => array(
-            'pretty_version' => '2.3.0',
-            'version' => '2.3.0.0',
-            'reference' => '29656d941e0f49c0a5752a07f8ab432abd697680',
+            'pretty_version' => '2.3.1',
+            'version' => '2.3.1.0',
+            'reference' => 'f4d01e5557446c09db868446727a76ef0f868a5c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
