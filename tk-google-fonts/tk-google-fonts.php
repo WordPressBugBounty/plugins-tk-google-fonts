@@ -1,16 +1,16 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
-    exit;
-}
 /**
  * Plugin Name: TK Google Fonts
  * Plugin URI:  http://themekraft.com/shop/product-category/themes/extentions/
  * Description: Google Fonts UI for WordPress Themes
- * Version: 2.2.14
+ * Version: 2.3.0
  * Author: ThemeKraft
  * Author URI: http://themekraft.com/
- * Licence: GPLv3
+ * License: GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Requires at least: 5.9
+ * Requires PHP: 7.4
  * Svn: tk-google-fonts
  *
  * @author  Sven Lehnert
@@ -33,6 +33,10 @@ if ( !defined( 'ABSPATH' ) ) {
  *
  * Have fun!
  */
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+require_once __DIR__ . '/vendor/autoload.php';
 if ( function_exists( 'tk_gf_fs' ) ) {
     tk_gf_fs()->set_basename( false, __FILE__ );
 } else {
@@ -43,8 +47,6 @@ if ( function_exists( 'tk_gf_fs' ) ) {
         function tk_gf_fs() {
             global $tk_gf_fs;
             if ( !isset( $tk_gf_fs ) ) {
-                // Include Freemius SDK.
-                include_once dirname( __FILE__ ) . '/includes/resources/freemius/start.php';
                 $tk_gf_fs = fs_dynamic_init( array(
                     'id'                             => '426',
                     'slug'                           => 'tk-google-fonts',
@@ -54,6 +56,7 @@ if ( function_exists( 'tk_gf_fs' ) ) {
                     'premium_suffix'                 => 'Premium',
                     'has_addons'                     => false,
                     'has_paid_plans'                 => true,
+                    'is_org_compliant'               => true,
                     'trial'                          => array(
                         'days'               => 7,
                         'is_require_payment' => true,
@@ -64,12 +67,13 @@ if ( function_exists( 'tk_gf_fs' ) ) {
                         'override_exact' => true,
                         'support'        => false,
                         'affiliation'    => false,
+                        'pricing'        => false,
                         'parent'         => array(
                             'slug' => 'themes.php',
                         ),
                     ),
-                    'is_live'                        => true,
                     'bundle_license_auto_activation' => true,
+                    'is_live'                        => true,
                 ) );
             }
             return $tk_gf_fs;

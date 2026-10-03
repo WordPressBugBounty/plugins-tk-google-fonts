@@ -66,10 +66,11 @@ function tk_google_fonts_customize_register(  $wp_customize  ) {
         return;
     }
     $tk_google_pro = false;
-    $tk_selected_fonts = $tk_google_fonts_options['selected_fonts'];
+    // The option does not exist until the settings page is saved once.
+    $tk_selected_fonts = ( isset( $tk_google_fonts_options['selected_fonts'] ) ? (array) $tk_google_fonts_options['selected_fonts'] : array() );
     $tk_google_font_array = array();
     $tk_google_font_array['none'] = '';
-    if ( isset( $tk_selected_fonts ) ) {
+    if ( !empty( $tk_selected_fonts ) ) {
         foreach ( $tk_selected_fonts as $key => $tk_selected_font ) {
             $tk_google_font_string = str_replace( '+', ' ', $tk_selected_font );
             $tk_google_font_array[$tk_google_font_string] = $tk_google_font_string;
@@ -1034,7 +1035,7 @@ function tk_google_fonts_go_pro_customizer_control() {
             ?>
 					<li><a class="button button-primary" target="_blank" href="<?php 
             echo esc_url( admin_url() );
-            ?>themes.php?page=tk-google-fonts-options-pricing">Go Pro Now</a></li>
+            ?>themes.php?page=tk-google-fonts-bundle_screen">Go Pro Now</a></li>
 				</ul>
 			</label>
 			<?php 
